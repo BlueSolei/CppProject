@@ -21,4 +21,5 @@ git add .
 
 git commit -m "Change project name from 'Dummy' --> '$ProjectName'"
 
-
+echo remove remote seed project repo
+git remote remove origin
