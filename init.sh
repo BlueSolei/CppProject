@@ -1,7 +1,5 @@
-# exit if no project name was given
-[ -z "$1" ] && { echo "Usage: ./init.sh <ProjectName>"; exit 1; }
-
-ProjectName=$1
+# project name is eather pwd or the first param
+ProjectName=$([ -z "$1" ] && echo $(basename $(pwd)) || echo $1)
 
 FindFiles() {
     find . -type file -not -path "$0" -not -path "*.git*"
