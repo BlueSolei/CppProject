@@ -6,7 +6,7 @@ pushd $SCRIPT_DIR
 ProjectName=$([ -z "$1" ] && echo $(basename $(pwd)) || echo $1)
 
 FindFiles() {
-    find . -type file -not -path "$0" -not -path "*.git*"
+    git ls-files | grep -v $0
 }
 
 # clean, just in case
