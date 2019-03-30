@@ -1,3 +1,7 @@
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+pushd $SCRIPT_DIR
+
 # project name is eather pwd or the first param
 ProjectName=$([ -z "$1" ] && echo $(basename $(pwd)) || echo $1)
 
@@ -21,3 +25,5 @@ git commit -m "Change project name from 'Dummy' --> '$ProjectName'"
 
 echo remove remote seed project repo
 git remote remove origin
+
+popd
