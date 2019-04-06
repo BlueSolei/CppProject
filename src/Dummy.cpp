@@ -2,4 +2,4 @@
 
 #include <iostream>
 
-void Dummy::Do() { std::cout << "Dummy do somthing!\n"; }
+void Dummy::Do() { std::cout << "Dummy does something!\n"; }
