@@ -20,10 +20,13 @@ FindFiles $0 | xargs sed -i '' -e "s/Dummy/$ProjectName/g;s/dummy/$ProjectNameLo
 FindFiles $0 | grep Dummy | sed -e "s/\(\(.*\)Dummy\(.*\)\)/\1 \2$ProjectName\3/g" | xargs -n 2 git mv
 
 git add .
-
+git rm --cached init.sh
 git commit -m "Change project name from 'Dummy' --> '$ProjectName'"
 
 echo remove remote seed project repo
 git remote remove origin
 
 popd
+
+git clean -df
+
