@@ -30,3 +30,9 @@ popd
 
 git clean -df
 
+echo Create a new git repo
+rm -rf .git
+git init
+git add .
+git commit -m "Seed project files"
+
