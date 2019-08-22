@@ -1,8 +1,10 @@
+#!/bin/bash
+
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 pushd $SCRIPT_DIR
-mkdir build
+if [ "$1" = "clean" ]; then rm -rf build; fi
+if [ ! -d "build" ]; then mkdir build; fi
 cd build
-conan install ..
 cmake ..
 cmake --build .
 popd
