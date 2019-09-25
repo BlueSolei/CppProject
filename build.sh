@@ -7,4 +7,6 @@ if [ ! -d "build" ]; then mkdir build; fi
 cd build
 cmake ..
 cmake --build .
+# uncomment if need installation
+# cmake --build . --target install
 popd
