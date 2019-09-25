@@ -6,11 +6,17 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
 
+# Download conan.cmake, download taged release - v0.14
+if(NOT EXISTS "${CMAKE_SOURCE_DIR}/env/conan.cmake")
+   message(STATUS "Downloading conan.cmake from https://github.com/conan-io/cmake-conan")
+   file(DOWNLOAD "https://github.com/conan-io/cmake-conan/raw/v0.14/conan.cmake"
+                 "${CMAKE_SOURCE_DIR}/env/conan.cmake")
+endif()
 include(env/conan.cmake)
-conan_cmake_run(CONANFILE conanfile.txt)
 
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()
+conan_cmake_run(CONANFILE conanfile.txt
+                BASIC_SETUP
+                BUILD missing)
 
 set(CMAKE_CXX_STANDARD 17)
 
