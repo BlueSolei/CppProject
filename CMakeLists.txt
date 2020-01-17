@@ -20,6 +20,9 @@ add_executable(${CMAKE_PROJECT_NAME}
   )
 
 target_link_libraries(${CMAKE_PROJECT_NAME} ${CONAN_LIBS})
+if(WIN32)
+	target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE UNICODE _UNICODE)
+endif()
 
 # Tests
 set(TEST_FILES
@@ -32,9 +35,7 @@ set(TEST_NAME ${CMAKE_PROJECT_NAME}Test)
 
 add_executable(${TEST_NAME} ${TEST_FILES})
 target_link_libraries(${TEST_NAME} ${CONAN_LIBS})
-
 if(WIN32)
-	target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE UNICODE _UNICODE)
 	target_compile_definitions(${TEST_NAME} PRIVATE UNICODE _UNICODE)
 endif()
 
