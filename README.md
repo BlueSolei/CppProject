@@ -4,6 +4,7 @@
 + [CMake](https://cmake.org/download/)
 + [Python](https://www.python.org/downloads/) 
 + [Conan](https://conan.io/downloads.html) (it will be installed by cmake script if not exist)
++ On Windos: [Git-Bash](https://git-scm.com/download)
 
 ## Create a project
 Say you want to have a project name RPC.
