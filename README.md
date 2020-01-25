@@ -1,7 +1,8 @@
 # C++ seed project
 
 ## Prerequeste
-Install [Conan](https://conan.io/downloads.html).
++ [Python](https://www.python.org/downloads/) installed
++ [Conan](https://conan.io/downloads.html) installed (it will be installed by cmake if not exist)
 
 ## Create a project
 Say you want to have a project name RPC.
