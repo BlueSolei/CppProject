@@ -6,10 +6,10 @@ if(NOT CONAN_CMD AND CONAN_REQUIRED)
                     COMMAND conan remote add outcome https://api.bintray.com/conan/ned14/Outcome)
 endif()
 
-# Download conan.cmake, download taged release - v0.14
+# Download conan.cmake, download taged release - v0.15
 if(NOT EXISTS "${CMAKE_SOURCE_DIR}/env/conan.cmake")
    message(STATUS "Downloading conan.cmake from https://github.com/conan-io/cmake-conan")
-   file(DOWNLOAD "https://github.com/conan-io/cmake-conan/raw/v0.14/conan.cmake"
+   file(DOWNLOAD "https://github.com/conan-io/cmake-conan/raw/v0.15/conan.cmake"
                  "${CMAKE_SOURCE_DIR}/env/conan.cmake")
 endif()
 include(env/conan.cmake)
