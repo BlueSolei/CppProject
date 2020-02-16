@@ -13,20 +13,21 @@ conan_cmake_run(CONANFILE conanfile.txt
 
 set(CMAKE_CXX_STANDARD 17)
 
+set(EXE_NAME ${CMAKE_PROJECT_NAME})
 set(EXE_FILES
   src/Main.cpp
   src/Dummy.cpp
   src/Dummy.h
 )
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${EXE_FILES})
-add_executable(${CMAKE_PROJECT_NAME} ${EXE_FILES})
-target_link_libraries(${CMAKE_PROJECT_NAME} ${CONAN_LIBS})
+add_executable(${EXE_NAME} ${EXE_FILES})
+target_link_libraries(${EXE_NAME} ${CONAN_LIBS})
 if(WIN32)
-	target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE UNICODE _UNICODE)
+	target_compile_definitions(${EXE_NAME} PRIVATE UNICODE _UNICODE)
 endif()
 
 # Tests
-set(TEST_NAME ${CMAKE_PROJECT_NAME}Test)
+set(TEST_NAME ${EXE_NAME}Test)
 set(TEST_FILES
   	src/Dummy.cpp
   	src/Dummy.h
