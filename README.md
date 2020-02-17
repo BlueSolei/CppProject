@@ -16,8 +16,10 @@ Say you want to have a project name RPC.
 
 #### Build & Run:
 
-+ `./build.sh`
-+ `./run.sh`
+1. `./build.sh [clean]`
+2. `./run.sh [tests]`  
+
+\* [word] is optional
 
 ### Create the project (Windows):
 
@@ -27,8 +29,12 @@ Say you want to have a project name RPC.
 
 #### Build & Run:
 
-+ `build.bat`
-+ `run.sh`
+1. `build.bat [clean]`
+2. `run.bat [tests]`  
+
+\* [word] is optional
 
 ### The project files
-To dev your project, you can find the native project files (.sln, makefile, etc.) under the `build` folder.
+To dev your project, you can find the native project files (.sln, makefile, etc.) under the `build` folder.  
+You will have two projects, RPC and RPCTest.
+
