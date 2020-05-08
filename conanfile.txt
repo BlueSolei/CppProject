@@ -6,4 +6,3 @@ doctest/2.2.0@bincrafters/stable
 
 [generators]
 cmake
-

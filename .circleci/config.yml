@@ -26,7 +26,7 @@ jobs:
           command: './build.sh'
       - run:
           name: Run
-          command: './run.sh && ./run.sh tests'      
+          command: './run.sh && ./run.sh tests'
 
 workflows:
   version: 2
@@ -35,6 +35,6 @@ workflows:
       - build:
           filters:
             branches:
-              only: 
+              only:
                 - master
                 - dev

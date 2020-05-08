@@ -3,9 +3,9 @@
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 pushd $SCRIPT_DIR
 
-if ! which conan; then 
+if ! which conan; then
     echo "Conan C++ package manager isn't installed. installing it now"
-    pip install conan 
+    pip install conan
     conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
     conan remote add outcome https://api.bintray.com/conan/ned14/Outcome
 fi
