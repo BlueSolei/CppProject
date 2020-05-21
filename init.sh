@@ -21,6 +21,7 @@ FindFiles $0 | grep Dummy | sed -e "s/\(\(.*\)Dummy\(.*\)\)/\1 \2$ProjectName\3/
 
 git add .
 git rm --cached init.sh
+git rm --cached init.bat
 git commit -m "Change project name from 'Dummy' --> '$ProjectName'"
 
 echo remove remote seed project repo
