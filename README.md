@@ -21,7 +21,7 @@ Say you want to have a project name RPC.
 
 #### Build & Run:
 
-1. `./build.sh [clean]`
+1. `./build.sh [clean] [wasm]`
 2. `./run.sh [tests]`
 
 \* [word] is optional
@@ -34,7 +34,7 @@ Say you want to have a project name RPC.
 
 #### Build & Run:
 
-1. `build.bat [clean]`
+1. `build.bat [clean] [wasm]`
 2. `run.bat [tests]`
 
 \* [word] is optional
