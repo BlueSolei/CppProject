@@ -9,12 +9,12 @@ if(NOT CONAN_CMD AND CONAN_REQUIRED)
             https://api.bintray.com/conan/ned14/Outcome)
 endif()
 
-# Download conan.cmake, download taged release - v0.15
-if(NOT EXISTS "${CMAKE_SOURCE_DIR}/env/conan.cmake")
+# Download conan.cmake, download tagged release - v0.15
+if(NOT EXISTS "${CMAKE_CURRENT_LIST_DIR}/conan.cmake")
   message(
     STATUS
       "Downloading conan.cmake from https://github.com/conan-io/cmake-conan")
   file(DOWNLOAD "https://github.com/conan-io/cmake-conan/raw/v0.15/conan.cmake"
-       "${CMAKE_SOURCE_DIR}/env/conan.cmake")
+       "${CMAKE_CURRENT_LIST_DIR}/conan.cmake")
 endif()
-include(env/conan.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/conan.cmake)
