@@ -6,3 +6,9 @@ doctest/2.2.0@bincrafters/stable
 
 [generators]
 cmake
+virtualenv
+
+[imports]
+bin, *.html -> ./bin
+bin, *.wasm -> ./bin
+bin, *.js -> ./bin
