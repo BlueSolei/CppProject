@@ -10,7 +10,14 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 include(env/conan_build_tool.cmake)
-conan_cmake_run(CONANFILE conanfile.txt BASIC_SETUP BUILD missing)
+conan_cmake_run(
+  CONANFILE
+  conanfile.txt
+  PROFILE
+  ${CONAN_PROFILE}
+  BASIC_SETUP
+  BUILD
+  missing)
 
 include(env/emscripten.cmake)
 

@@ -1,3 +1,4 @@
+# make sure we have conan, install if not
 find_program(CONAN_CMD conan)
 if(NOT CONAN_CMD AND CONAN_REQUIRED)
   message("Conan C++ package manager isn't installed. installing it now")
