@@ -24,9 +24,11 @@ include(env/emscripten.cmake)
 set(CMAKE_CXX_STANDARD 17)
 
 set(EXE_NAME ${CMAKE_PROJECT_NAME})
-set(EXE_FILES src/Main.cpp src/Dummy.cpp src/Dummy.h)
+add_executable(${EXE_NAME})
+target_sources(${EXE_NAME} PRIVATE # cmake-format: sortable
+                                   src/Main.cpp src/Dummy.cpp src/Dummy.h)
+get_target_property(EXE_FILES ${EXE_NAME} SOURCES)
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${EXE_FILES})
-add_executable(${EXE_NAME} ${EXE_FILES})
 target_link_libraries(${EXE_NAME} ${CONAN_LIBS})
 if(WIN32)
   target_compile_definitions(${EXE_NAME} PRIVATE UNICODE _UNICODE)
@@ -38,9 +40,13 @@ endif()
 
 # Tests
 set(TEST_NAME ${EXE_NAME}Test)
-set(TEST_FILES src/Dummy.cpp src/Dummy.h tests/DummyTest.cpp tests/Main.cpp)
+add_executable(${TEST_NAME})
+target_sources(
+  ${TEST_NAME}
+  PRIVATE # cmake-format: sortable
+          src/Dummy.cpp src/Dummy.h tests/DummyTest.cpp tests/Main.cpp)
+get_target_property(TEST_FILES ${TEST_NAME} SOURCES)
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${TEST_FILES})
-add_executable(${TEST_NAME} ${TEST_FILES})
 target_link_libraries(${TEST_NAME} ${CONAN_LIBS})
 if(WIN32)
   target_compile_definitions(${TEST_NAME} PRIVATE UNICODE _UNICODE)
