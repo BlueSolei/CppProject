@@ -1,3 +1,10 @@
+if [$1 -eq "--help"]; then
+    echo Usage: ./init.sh
+    echo    Initalize the project. 
+    echo    Call this first thing, as its recreate the git repo.
+    exit 0
+fi
+
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 pushd $SCRIPT_DIR
