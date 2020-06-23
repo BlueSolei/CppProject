@@ -1,6 +1,6 @@
 if [[ "$1" = "--help" ]]; then
     echo Usage: ./init.sh
-    echo    Initalize the project. 
+    echo    Initalize the project.
     echo    Call this first thing, as its recreate the git repo.
     exit 0
 fi

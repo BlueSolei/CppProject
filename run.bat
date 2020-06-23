@@ -2,7 +2,7 @@
 
 if "%1"=="/?" (
     echo Usage: run [tests]
-    exit /b    
+    exit /b
 )
 
 pushd %~dp0
