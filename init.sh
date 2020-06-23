@@ -38,5 +38,5 @@ git add .
 git rm --cached init.* 	# no need for init scripts anymore
 git commit -m "Seed project files"
 
-must be the last one, as it deletes this script :-O
+# must be the last one, as it deletes this script :-O
 git clean -df
