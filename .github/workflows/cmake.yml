@@ -20,9 +20,9 @@ jobs:
     - name: Build
       working-directory: ${{runner.workspace}}
       shell: bash
-      run: ./build.sh
+      run: $GITHUB_WORKSPACE/build.sh
 
     - name: Test
       working-directory: ${{runner.workspace}}
       shell: bash
-      run: ./test.sh
+      run: $GITHUB_WORKSPACE/test.sh
