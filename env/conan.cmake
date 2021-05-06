@@ -645,19 +645,22 @@ function(old_conan_cmake_install)
       ${CONAN_INSTALL_FOLDER}
       ${ARGUMENTS_INSTALL_ARGS})
 
-  string(REPLACE ";" " " _conan_args "${conan_args}")
-  message(STATUS "Conan executing: ${CONAN_CMD} ${_conan_args}")
+  set(SHELL_CONAN_CMD "cmd.exe")
+  set(conan_args "/C;${CONAN_CMD};${conan_args}")
+
+  string(REPLACE ";" " " _conan_args "${shell_conan_args}")
+  message(STATUS "Conan executing: ${SHELL_CONAN_CMD} ${_conan_args}")
 
   if(ARGUMENTS_OUTPUT_QUIET)
     execute_process(
-      COMMAND ${CONAN_CMD} ${conan_args}
+      COMMAND ${SHELL_CONAN_CMD} ${conan_args}
       RESULT_VARIABLE return_code
       OUTPUT_VARIABLE conan_output
       ERROR_VARIABLE conan_output
       WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
   else()
     execute_process(
-      COMMAND ${CONAN_CMD} ${conan_args}
+      COMMAND ${SHELL_CONAN_CMD} ${conan_args}
       RESULT_VARIABLE return_code
       WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
   endif()
@@ -990,8 +993,13 @@ macro(conan_check)
   if(NOT CONAN_DETECT_QUIET)
     message(STATUS "Conan: Found program ${CONAN_CMD}")
   endif()
+
+  # fix me: this should be run only if pyenv exist, no matter the OS target
+  set(SHELL_CONAN_CMD "cmd.exe")
+  set(shell_conan_args "/C;${CONAN_CMD};--version")
+
   execute_process(
-    COMMAND ${CONAN_CMD} --version
+    COMMAND ${SHELL_CONAN_CMD} ${shell_conan_args}
     RESULT_VARIABLE return_code
     OUTPUT_VARIABLE CONAN_VERSION_OUTPUT
     ERROR_VARIABLE CONAN_VERSION_OUTPUT)
