@@ -23,6 +23,7 @@ fi
 
 cmake .. -DCMAKE_BUILD_TYPE=Debug -DCONAN_PROFILE=$CONAN_PROFILE
 cmake --build .
+cmake --install . --prefix ..
 
 # uncomment if you whish to insall build target
 # cmake --build . --target install

@@ -23,36 +23,31 @@ include(env/emscripten.cmake)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(EXE_NAME ${CMAKE_PROJECT_NAME})
-add_executable(${EXE_NAME})
-target_sources(${EXE_NAME} PRIVATE # cmake-format: sortable
-                                   src/Main.cpp src/Dummy.cpp src/Dummy.h)
-get_target_property(EXE_FILES ${EXE_NAME} SOURCES)
+add_executable(Dummy)
+install(TARGETS Dummy)
+target_sources(Dummy PRIVATE # cmake-format: sortable
+                             src/Main.cpp src/Dummy.cpp src/Dummy.h)
+get_target_property(EXE_FILES Dummy SOURCES)
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${EXE_FILES})
-target_link_libraries(${EXE_NAME} ${CONAN_LIBS})
+target_link_libraries(Dummy ${CONAN_LIBS})
 if(WIN32)
-  target_compile_definitions(${EXE_NAME} PRIVATE UNICODE _UNICODE)
+  target_compile_definitions(Dummy PRIVATE UNICODE _UNICODE)
 endif()
 
 if(EMSCRIPTEN)
-  wasemize_exe(${EXE_NAME})
+  wasemize_exe(Dummy)
 endif()
 
 # Tests
-set(TEST_NAME ${EXE_NAME}Test)
-add_executable(${TEST_NAME})
+add_executable(DummyTest)
+install(TARGETS DummyTest)
 target_sources(
-  ${TEST_NAME}
+  DummyTest
   PRIVATE # cmake-format: sortable
           src/Dummy.cpp src/Dummy.h tests/DummyTest.cpp tests/Main.cpp)
-get_target_property(TEST_FILES ${TEST_NAME} SOURCES)
+get_target_property(TEST_FILES DummyTest SOURCES)
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${TEST_FILES})
-target_link_libraries(${TEST_NAME} ${CONAN_LIBS})
+target_link_libraries(DummyTest ${CONAN_LIBS})
 if(WIN32)
-  target_compile_definitions(${TEST_NAME} PRIVATE UNICODE _UNICODE)
+  target_compile_definitions(DummyTest PRIVATE UNICODE _UNICODE)
 endif()
-
-# install( DIRECTORY ${CMAKE_SOURCE_DIR}/env/ DESTINATION
-# ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} FILES_MATCHING PATTERN "*.*" PERMISSIONS
-# OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ) FILES ${CMAKE_SOURCE_DIR}/env
-# DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
