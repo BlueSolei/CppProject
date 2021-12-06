@@ -9,7 +9,7 @@ trap 'LAST_COMMAND=$CURRENT_COMMAND; CURRENT_COMMAND=$BASH_COMMAND' DEBUG
 trap 'ERROR_CODE=$?; FAILED_COMMAND=$LAST_COMMAND; tput setaf 1; echo "ERROR: command \"$FAILED_COMMAND\" failed with exit code $ERROR_CODE"; tput sgr0;' ERR INT TERM
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
-pushd $SCRIPT_DIR >/dev/null 2>&1
+pushd "$SCRIPT_DIR" >/dev/null 2>&1
 
 if ! which conan; then
   echo "Conan C++ package manager isn't installed. installing it now"

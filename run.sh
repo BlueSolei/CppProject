@@ -42,7 +42,7 @@ done
 
 # run exe\tests
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
-pushd $SCRIPT_DIR/bin >/dev/null 2>&1
+pushd "$SCRIPT_DIR/bin" >/dev/null 2>&1
 if [[ $RUN_EXE ]]; then
   if [[ -f dummy.html ]]; then
     source ../build/activate.sh

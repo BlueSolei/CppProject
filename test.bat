@@ -1,10 +1,2 @@
 @echo off
-setlocal
-set SH="c:\Program Files\Git\bin\bash.exe"
-if not exist %SH% (set SH="c:\Program Files\Git\bin\sh.exe")
-if exist %SH% (
-    %SH% test.sh %*
-) else (
-    test.sh %*
-)
-endlocal
+%~dp0\env\call-sh.bat %~dp0\test.sh %*
