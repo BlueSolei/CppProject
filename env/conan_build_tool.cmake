@@ -2,12 +2,8 @@
 find_program(CONAN_CMD conan)
 if(NOT CONAN_CMD AND CONAN_REQUIRED)
   message("Conan C++ package manager isn't installed. installing it now")
-  execute_process(
-    COMMAND pip install conan
-    COMMAND conan remote add bincrafters
-            https://api.bintray.com/conan/bincrafters/public-conan
-    COMMAND conan remote add outcome
-            https://api.bintray.com/conan/ned14/Outcome)
+  execute_process(COMMAND pip install conan COMMAND_ECHO STDOUT
+                          COMMAND_ERROR_IS_FATAL ANY)
 endif()
 
 # Download conan.cmake, download tagged release - v0.16.1

@@ -2,14 +2,14 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 pushd $SCRIPT_DIR
 cd bin
 if [[ "$1" != "tests" ]]; then
-    if [[ -f Dummy.html ]]; then
+    if [[ -f dummy.html ]]; then
         source ../activate.sh
-        emrun ./Dummy.html
+        emrun ./dummy.html
         source ../deactivate.sh
     else
-        ./Dummy
+        ./dummy
     fi
 else
-    ./DummyTest
+    ./dummy-test
 fi
 popd

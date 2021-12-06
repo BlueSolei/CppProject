@@ -1,5 +1,5 @@
-#include "Dummy.h"
+#include "dummy.h"
 
 #include <fmt/format.h>
 
-void Dummy::Do() { fmt::print("Dummy does something!\n"); }
+void dummy::do_somthing() { fmt::print("dummy does something!\n"); }

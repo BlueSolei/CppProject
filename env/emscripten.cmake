@@ -7,13 +7,7 @@ endif()
 function(wasemize_exe TARGET)
   set_target_properties(${TARGET} PROPERTIES SUFFIX ".html" LINK_FLAGS
                                                             "--emrun")
-
-  install(
-    TARGETS ${TARGET}
-    RUNTIME DESTINATION bin
-    LIBRARY DESTINATION lib
-    ARCHIVE DESTINATION lib)
-
+  install(TARGETS ${TARGET})
   install(FILES ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${TARGET}.js
                 ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${TARGET}.wasm
           DESTINATION bin)

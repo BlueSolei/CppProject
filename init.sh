@@ -19,14 +19,14 @@ FindFiles() {
 # clean, just in case
 rm -rf build
 
-echo Project\'s name is changed from "'Dummy'" --\> "'$ProjectName'"
+echo Project\'s name is changed from "'dummy'" --\> "'$ProjectName'"
 
-# change in files 'Dummy' --> '<ProjectName>'
+# change in files 'dummy' --> '<ProjectName>'
 ProjectNameLower=$(echo $ProjectName | tr '[:upper:]' '[:lower:]')
-FindFiles $0 | xargs sed -i -e "s/Dummy/$ProjectName/g;s/dummy/$ProjectNameLower/g"
+FindFiles $0 | xargs sed -i -e "s/dummy/$ProjectName/g;s/dummy/$ProjectNameLower/g"
 
-# Change file names from DummyTest.cpp --> <ProjectName>Test.cpp
-FindFiles $0 | grep Dummy | sed -e "s/\(\(.*\)Dummy\(.*\)\)/\1 \2$ProjectName\3/g" | xargs -n 2 git mv
+# Change file names from dummy-test.cpp --> <ProjectName>Test.cpp
+FindFiles $0 | grep dummy | sed -e "s/\(\(.*\)dummy\(.*\)\)/\1 \2$ProjectName\3/g" | xargs -n 2 git mv
 
 popd
 

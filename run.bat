@@ -7,5 +7,5 @@ if "%1"=="/?" (
 
 pushd %~dp0
 cd bin
-if "%1"=="tests" (DummyTest.exe) else (Dummy.exe)
+if "%1"=="tests" (dummy-test.exe) else (dummy.exe)
 popd

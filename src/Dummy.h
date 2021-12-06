@@ -1,6 +1,6 @@
 #pragma once
 
-class Dummy {
+class dummy {
 public:
-  void Do();
+  void do_somthing();
 };
