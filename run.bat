@@ -1,11 +1,10 @@
 @echo off
-
-if "%1"=="/?" (
-    echo Usage: run [tests]
-    exit /b
+setlocal
+set SH="c:\Program Files\Git\bin\bash.exe"
+if not exist %SH% (set SH="c:\Program Files\Git\bin\sh.exe")
+if exist %SH% (
+    %SH% run.sh %*
+) else (
+    run.sh %*
 )
-
-pushd %~dp0
-cd bin
-if "%1"=="tests" (dummy-test.exe) else (dummy.exe)
-popd
+endlocal

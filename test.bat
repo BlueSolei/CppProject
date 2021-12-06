@@ -3,8 +3,8 @@ setlocal
 set SH="c:\Program Files\Git\bin\bash.exe"
 if not exist %SH% (set SH="c:\Program Files\Git\bin\sh.exe")
 if exist %SH% (
-    %SH% build.sh %*
+    %SH% test.sh %*
 ) else (
-    build.sh %*
+    test.sh %*
 )
 endlocal
