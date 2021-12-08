@@ -55,7 +55,7 @@ endif()
 add_executable(dummy-test)
 install(TARGETS dummy-test)
 target_sources(dummy-test PRIVATE # cmake-format: sortable
-                                  ./tests/dummy-test.cpp ./tests/main.cpp)
+                                  ./tests/dummy_test.cpp ./tests/main.cpp)
 target_link_libraries(dummy-test dummy ${CONAN_LIBS})
 if(WIN32)
   target_compile_definitions(dummy-test PRIVATE UNICODE _UNICODE)
