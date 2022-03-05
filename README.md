@@ -11,6 +11,12 @@
 - [Conan](https://conan.io/downloads.html) (it will be installed by cmake script if not exist)
 - On Windos: [Git-Bash](https://git-scm.com/download)
 
+## Config once in your system ([blog](https://ngeor.com/2019/01/27/clang-format-git-filter.html)):
+```console
+git config --global filter.clang-format.clean clang-format 
+git config --global filter.clang-format.smudge cat
+```
+
 ## Create a project
 
 Say you want to have a project name RPC.

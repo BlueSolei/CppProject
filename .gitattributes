@@ -1,3 +1,8 @@
 * text=auto eol=lf
 *.{cmd,[cC][mM][dD]} text eol=crlf
 *.{bat,[bB][aA][tT]} text eol=crlf
+
+# To enable the custom clang-format filter, you need to run:
+# git config --global filter.clang-format.clean 'clang-format --assume-filename=test.cpp'
+# git config --global filter.clang-format.smudge cat
+*.{c,h,cpp,hpp} filter=clang-format
