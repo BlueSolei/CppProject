@@ -2,4 +2,7 @@
 Language:       Cpp
 BasedOnStyle:   LLVM
 ColumnLimit:    79
-CommentPragmas:  '^\\.+'
+CommentPragmas: '^\\.+' # respect doxigen comments (https://stackoverflow.com/a/51913607/923945)
+UseCRLF:        false
+UseTab:         Never
+IndentWidth:    2
