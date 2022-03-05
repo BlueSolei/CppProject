@@ -9,6 +9,8 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
+set(CMAKE_CXX_STANDARD 17)
+
 include(env/conan_build_tool.cmake)
 conan_cmake_run(
   CONANFILE
@@ -18,10 +20,8 @@ conan_cmake_run(
   BASIC_SETUP
   BUILD
   missing)
-
 include(env/emscripten.cmake)
 
-set(CMAKE_CXX_STANDARD 17)
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR})
 
 # library
@@ -42,13 +42,12 @@ install(TARGETS dummy-cli)
 target_sources(dummy-cli PRIVATE # cmake-format: sortable
                                  ./cli/main.cpp)
 target_link_libraries(dummy-cli dummy ${CONAN_LIBS})
-set_target_properties(dummy-cli PROPERTIES OUTPUT_NAME dummy)
 if(WIN32)
   target_compile_definitions(dummy-cli PRIVATE UNICODE _UNICODE)
 endif()
 
 if(EMSCRIPTEN)
-  wasemize_exe(dummy)
+  wasemize_exe(dummy-cli)
 endif()
 
 # Tests
