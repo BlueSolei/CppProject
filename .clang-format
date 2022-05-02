@@ -6,3 +6,4 @@ CommentPragmas: '^\\.+' # respect doxigen comments (https://stackoverflow.com/a/
 UseCRLF:        false
 UseTab:         Never
 IndentWidth:    2
+AlwaysBreakTemplateDeclarations: Yes
